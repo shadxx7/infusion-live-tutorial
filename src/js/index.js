@@ -12,7 +12,6 @@ function press2() {
     document.getElementById("chall1").style.display = "none";
     document.getElementById('ex-invoke').style.display = "block";
     document.getElementById("ex2").style.display = "block";
-    window.location.href = '#intro';
     document.getElementById('tut_pro').style.height = "50%";
 }
 
@@ -27,6 +26,7 @@ function press3() {
 function press4() {
     document.getElementById("ex-invoke").style.display = "none";
     document.getElementById("chall2").style.display = "none";
+    document.getElementById('intro').style.display = "none";
     document.getElementById('complete').style.display = "block";
     document.getElementById('tut_pro').style.height = "100%";
 }
