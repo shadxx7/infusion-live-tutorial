@@ -7,12 +7,18 @@ A mockup of a live tutorial for the Infusion Framework. This demo currently uses
 
 - Install Node and npm for you computer [here](https://nodejs.org/en/)
 
-- Navigate to your directory and launch a terminal and enter the following command :
+- Navigate to the directory you cloned the repo inside and launch a terminal and enter the following command :
 
 ```bash
 npm install
 ```
 - This will install all the dependencies required to run the demo
 
-- Now finally launch the directory as a server using any method you wish or just start index.html (this will not load the codepen snippets)
+- Now launch the directory as a live server by entering the following commands in the terminal(or using any other method you wish):
+```bash
+npm install -g live-server
+live-server
+```
+- Open you browser and enter the following URL: http://127.0.0.1:8080/
 
+- Vola, you are now in the demo!
