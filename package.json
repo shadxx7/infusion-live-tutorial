@@ -16,5 +16,8 @@
     "url": "https://github.com/shadxx7/infusion-live-tutorial/issues"
   },
   "homepage": "https://github.com/shadxx7/infusion-live-tutorial#readme",
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "infusion": "^2.0.0"
+  }
 }

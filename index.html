@@ -2,29 +2,68 @@
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Infusion JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/infusion/2.0.0/infusion-all.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <!-- Bootstrap CSS 4.0 -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+
+    <!-- CSS Components from Infusion -->
+    <link rel="stylesheet" type="text/css" href="node_modules/infusion/src/lib/normalize/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/infusion/src/framework/core/css/fluid.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/infusion/src/components/overviewPanel/css/OverviewPanel.css" />
+
     <!-- local CSS -->
     <link rel="stylesheet" href="src/css/index.css">
 
+    <!-- jQuery -->
+    <script type="text/javascript" src="node_modules/infusion/src/lib/jquery/core/js/jquery.js"></script>
+
+    <!-- Infusion JS -->
+    <script type="text/javascript" src="node_modules/infusion/dist/infusion-all.js"></script>
+
+    <!-- local JS -->
+    <script type="text/javascript" src="src/js/index.js"></script>
+
 </head>
 
-<body>
+<body style="background: #fffde7;">
+
+    <!-- Overview Panel -->
+    <div class="flc-overviewPanel fl-overviewPanel-container"></div>
+
+    <script type="text/javascript">
+        fluid.overviewPanel(".flc-overviewPanel", {
+            resources: {
+                template: {
+                    href: "node_modules/infusion/src/components/overviewPanel/html/overviewPanelTemplate.html"
+                }
+            },
+            strings: {
+                componentName: "Overview Panel",
+                feedbackText: "Have a comment?",
+                feedbackLinkText: "Email us"
+            },
+            markup: {
+                description: "The Overview Panel sits on top of your content, and can be collapsed and expanded. It allows you to provide some information about whatever is on your page.",
+                instructions: "<p>This area can be used to provide instructions to your viewers about how to use the content on the page.</p><p>The links below can be configured to point to whatever you like.</p>"
+            },
+            links: {
+                titleLink: "http://fluidproject.org/infusion.html",
+                demoCodeLink: "https://github.com/fluid-project/infusion/tree/master/demos/overviewPanel",
+                infusionCodeLink: "https://github.com/fluid-project/infusion",
+                feedbackLink: "mailto:infusion-users@fluidproject.org?subject=Overview%20Panel%20feedback"
+            }
+        });
+    </script>
 
     <!-- Progress Bar -->
     <div class="side_progress">
-        <h6 class="text-center text-white" style="margin-top: 30px; margin-bottom: 20px;">Your progress:</h6>
+        <h6 class="text-center" style="margin-top: 30px; margin-bottom: 20px;">Your progress:</h6>
         <div class="progress progress-bar-vertical">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0"
                 aria-valuemax="100" style="height: 0%" id="tut_pro"></div>
         </div>
     </div>
@@ -32,7 +71,7 @@
     <!-- Introduciton -->
     <div style="padding-bottom: 40px;" id="intro">
         <h1 class="text-center" style="padding-top: 40px;">Welcome to a Infusion Live Tutorial</h1>
-        <h4 class="text-center" style="padding-top: 20px;">Today we wll be learning about the basics of the Infusion Framework i.e: Components and Invokers</h4>
+        <h4 class="text-center" style="padding-top: 20px;">Today we will be learning about the basics of the Infusion Framework i.e: Components and Invokers</h4>
     </div>
 
     <!-- Prerequisites -->
@@ -56,21 +95,21 @@
             Here is a Live Example :
         </h5>
 
-        <h6>(The below component will be replaced by version in which the user can edit code which will be done using an extended
+        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
             version of the
             <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
 
         <div class="container bottomer">
-            <iframe height='300' scrolling='no' title='infusion-live-tutorial' src='//codepen.io/shadxx7/embed/WMLaOK/?height=265&theme-id=light&default-tab=js,result&embed-version=2'
-                frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%'>See the Pen
-                <a href='https://codepen.io/shadxx7/pen/WMLaOK/'>infusion-live-tutorial</a> by Mohamed Shadab (
+            <iframe height='300' scrolling='no' title='infusion-live-tutorial-comp' src='//codepen.io/shadxx7/embed/WMLaOK/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
+                frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
+                <a href='https://codepen.io/shadxx7/pen/WMLaOK/'>infusion-live-tutorial-comp</a> by Mohamed Shadab (
                 <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
                 <a href='https://codepen.io'>CodePen</a>.
             </iframe>
         </div>
 
         <div class="container bottomer">
-            <button type="button" class="btn btn-outline-success" onclick="press1()">Next</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press1()">Next</button>
         </div>
     </div>
 
@@ -80,7 +119,7 @@
             Try Making a component yourself now :
         </h5>
 
-        <h6>(The below component will be replaced by version in which the user can edit code which will be done using an extended
+        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
             version of the
             <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
 
@@ -94,7 +133,7 @@
         </div>
 
         <div class="container bottomer">
-            <button type="button" class="btn btn-outline-success" onclick="press2()">Next</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press2()">Next</button>
         </div>
     </div>
 
@@ -118,12 +157,12 @@
             Here is a Live Example :
         </h5>
 
-        <h6>(The below component will be replaced by version in which the user can edit code which will be done using an extended
+        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
             version of the
             <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
 
         <div class="container bottomer">
-            <iframe height='300' scrolling='no' title='infusion-live-tutorial-invoke' src='//codepen.io/shadxx7/embed/ZrVPKW/?height=265&theme-id=light&default-tab=js,result&embed-version=2'
+            <iframe height='300' scrolling='no' title='infusion-live-tutorial-invoke' src='//codepen.io/shadxx7/embed/ZrVPKW/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
                 frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
                 <a href='https://codepen.io/shadxx7/pen/ZrVPKW/'>infusion-live-tutorial-invoke</a> by Mohamed Shadab (
                 <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
@@ -132,7 +171,7 @@
         </div>
 
         <div class="container bottomer">
-            <button type="button" class="btn btn-outline-success" onclick="press3()">Next</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press3()">Next</button>
         </div>
     </div>
 
@@ -142,7 +181,7 @@
             Try Making invoking in the console yourself now :
         </h5>
 
-        <h6>(The below component will be replaced by version in which the user can edit code which will be done using an extended
+        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
             version of the
             <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
 
@@ -156,15 +195,13 @@
         </div>
 
         <div class="container bottomer">
-            <button type="button" class="btn btn-outline-success" onclick="press4()">Complete</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press4()">Complete</button>
         </div>
     </div>
 
-    <div class="text-center container bottomer" id="complete">
-        <h2 style="color: green;">Tutorial Complete!!!!</h2>
+    <div class="text-center container bottomer" style="padding-top: 100px; font-size: 40px;" id="complete">
+        <h1 style="color: rgb(255, 208, 0);">Tutorial Complete!!!!</h1>
     </div>
-
-    <script type="text/Javascript" src="src/js/index.js"></script>
 
 </body>
 
