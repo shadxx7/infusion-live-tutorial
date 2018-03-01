@@ -1,7 +1,7 @@
 # Infusion Live Tutorial Demo
 A mockup of a live tutorial for the Infusion Framework. This demo currently uses embedded snippets from CodePen which are not editable on the page itself, in the final version this will not be the case as we will use an extended version of Fluid Sandbox which will allow the user to edit the code.
 
-# Instructions on how to lauch the demo
+# Instructions on how to launch the demo
 
 - Clone the repo on your computer
 
