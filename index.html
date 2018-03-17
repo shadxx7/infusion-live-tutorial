@@ -10,198 +10,255 @@
     <!-- Bootstrap CSS 4.0 -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 
-    <!-- CSS Components from Infusion -->
-    <link rel="stylesheet" type="text/css" href="node_modules/infusion/src/lib/normalize/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="node_modules/infusion/src/framework/core/css/fluid.css" />
-    <link rel="stylesheet" type="text/css" href="node_modules/infusion/src/components/overviewPanel/css/OverviewPanel.css" />
+    <!-- CSS Components from Infusion for uiOptions -->
+    <link rel="stylesheet" type="text/css" href="lib/infusion/src/framework/preferences/css/Enactors.css" />
+    <link rel="stylesheet" type="text/css" href="lib/infusion/src/framework/preferences/css/PrefsEditor.css" />
+    <link rel="stylesheet" type="text/css" href="lib/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css" />
 
     <!-- local CSS -->
     <link rel="stylesheet" href="src/css/index.css">
 
     <!-- jQuery -->
-    <script type="text/javascript" src="node_modules/infusion/src/lib/jquery/core/js/jquery.js"></script>
+    <script type="text/javascript" src="node_modules\jquery\dist\jquery.js"></script>
 
-    <!-- Infusion JS -->
-    <script type="text/javascript" src="node_modules/infusion/dist/infusion-all.js"></script>
+    <!-- uiOptions JS -->
+    <script type="text/javascript" src="lib/infusion/infusion-uiOptions.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="node_modules\bootstrap\dist\js\bootstrap.js"></script>
 
     <!-- local JS -->
     <script type="text/javascript" src="src/js/index.js"></script>
 
 </head>
 
-<body style="background: #fffde7;">
+<body style="background: #f7fffe;">
 
-    <!-- Overview Panel -->
-    <div class="flc-overviewPanel fl-overviewPanel-container"></div>
-
-    <script type="text/javascript">
-        fluid.overviewPanel(".flc-overviewPanel", {
-            resources: {
-                template: {
-                    href: "node_modules/infusion/src/components/overviewPanel/html/overviewPanelTemplate.html"
-                }
-            },
-            strings: {
-                componentName: "Overview Panel",
-                feedbackText: "Have a comment?",
-                feedbackLinkText: "Email us"
-            },
-            markup: {
-                description: "The Overview Panel sits on top of your content, and can be collapsed and expanded. It allows you to provide some information about whatever is on your page.",
-                instructions: "<p>This area can be used to provide instructions to your viewers about how to use the content on the page.</p><p>The links below can be configured to point to whatever you like.</p>"
-            },
-            links: {
-                titleLink: "http://fluidproject.org/infusion.html",
-                demoCodeLink: "https://github.com/fluid-project/infusion/tree/master/demos/overviewPanel",
-                infusionCodeLink: "https://github.com/fluid-project/infusion",
-                feedbackLink: "mailto:infusion-users@fluidproject.org?subject=Overview%20Panel%20feedback"
-            }
-        });
-    </script>
+    <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel">
+        <!-- This is the div that will contain the Preference Editor component -->
+        <div class="flc-slidingPanel-panel flc-prefsEditor-iframe"></div>
+        <!-- This div is for the sliding panel that shows and hides the Preference Editor controls -->
+        <div class="fl-panelBar">
+            <span class="fl-prefsEditor-buttons" style="color: white; background: #28a745">
+                <button id="reset" class="flc-prefsEditor-reset fl-prefsEditor-reset" style="color: white; background: #28a745">
+                    <span class="fl-icon-undo"></span> Reset</button>
+                <button id="show-hide" class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" style="color: white; background: #28a745">
+                    Show/Hide</button>
+            </span>
+        </div>
+    </div>
 
     <!-- Progress Bar -->
     <div class="side_progress">
-        <h6 class="text-center" style="margin-top: 30px; margin-bottom: 20px;">Your progress:</h6>
+        <h6 class="text-center" style="margin-top: 70px; margin-bottom: 20px;">Your progress:</h6>
         <div class="progress progress-bar-vertical">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
                 aria-valuemax="100" style="height: 0%" id="tut_pro"></div>
         </div>
     </div>
 
-    <!-- Introduciton -->
-    <div style="padding-bottom: 40px;" id="intro">
-        <h1 class="text-center" style="padding-top: 40px;">Welcome to a Infusion Live Tutorial</h1>
-        <h4 class="text-center" style="padding-top: 20px;">Today we will be learning about the basics of the Infusion Framework i.e: Components and Invokers</h4>
-    </div>
+    <div class="part1">
+        <h3 class="text-center bottomer" style="padding-top: 30px;">Instructions & Info</h3>
+        <div class="container">
 
-    <!-- Prerequisites -->
-    <div class="container bottomer" id="pre_">
-        <h4>Prerequisites:</h4>
-        <h5>Basic HTML, CSS, Javascript</h5>
-    </div>
+            <!-- Components -->
+            <div class="container bottomer" id="ex-comp">
+                <h4>Components</h4>
+                <p>Components are JavaScript objects that have certain characteristics. Components can be freely combined together
+                    to form new components using the grades system ("grade" is the term used in Infusion for a sort of blueprint,
+                    in this case one that holds a component's default configuration), or organized into relationships with
+                    one another via subcomponents.</p>
+            </div>
 
-    <!-- Components -->
-    <div class="container bottomer" id="ex-comp">
-        <h4>Lets start with Components,</h4>
-        <h5>Components are JavaScript objects that have certain characteristics. Components can be freely combined together to
-            form new components using the grades system ("grade" is the term used in Infusion for a sort of blueprint, in
-            this case one that holds a component's default configuration), or organized into relationships with one another
-            via subcomponents.</h5>
-    </div>
+            <!-- Invokers -->
+            <div class="container bottomer" id="ex-invoke">
+                <h4>Now lets do Invokers,</h4>
+                <p>All Infusion components support the definition of public functions using invokers; among other uses, invokers
+                    allow related components to have different internal implementations of a function but present a common
+                    function to be called by other code. If we imagine a "Hello, World!" component, there are a variety of
+                    ways it might say "hello". Two of them are:
+                    <ul>
+                        <li>By printing to the web developer console via console.log</li>
+                        <li>By displaying a message on a web page</li>
+                    </ul>
+                </p>
+            </div>
 
-    <!-- First Live Code Example -->
-    <div class="container bottomer" id="ex1">
-        <h5>
-            Here is a Live Example :
-        </h5>
+            <!-- Challenge Statement -->
+            <div class="container bottomer" id="chall_state">
+                <h4>Challenge:</h4>
+                <p>
+                    <ul>
+                        <li>Solve the challenge to proceed (Markup has been provided)</li>
+                        <li>Click the button below for a hint</li>
+                    </ul>
+                </p>
+            </div>
 
-        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
-            version of the
-            <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
+            <!-- Hint Modal Trigger Button -->
+            <div class="container bottomer" id="get_hint">
+                <button type="button" class="btn btn-outline-success btn-lg btn-block" data-toggle="modal" data-target="#hintModal">Get Hint</button>
+            </div>
 
-        <div class="container bottomer">
-            <iframe height='300' scrolling='no' title='infusion-live-tutorial-comp' src='//codepen.io/shadxx7/embed/WMLaOK/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
-                frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
-                <a href='https://codepen.io/shadxx7/pen/WMLaOK/'>infusion-live-tutorial-comp</a> by Mohamed Shadab (
-                <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
-                <a href='https://codepen.io'>CodePen</a>.
-            </iframe>
-        </div>
-
-        <div class="container bottomer">
-            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press1()">Next</button>
-        </div>
-    </div>
-
-    <!-- First Live Code Challenge -->
-    <div class="container bottomer" id="chall1">
-        <h5>
-            Try Making a component yourself now :
-        </h5>
-
-        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
-            version of the
-            <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
-
-        <div class="container bottomer">
-            <iframe height='300' scrolling='no' title='infusion-live-tutorial-comp-chall' src='//codepen.io/shadxx7/embed/rJoPEV/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
-                frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
-                <a href='https://codepen.io/shadxx7/pen/rJoPEV/'>infusion-live-tutorial-comp-chall</a> by Mohamed Shadab (
-                <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
-                <a href='https://codepen.io'>CodePen</a>.
-            </iframe>
-        </div>
-
-        <div class="container bottomer">
-            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press2()">Next</button>
         </div>
     </div>
 
-    <!-- Invokers -->
-    <div class="container bottomer" id="ex-invoke">
-        <h4>Now lets do Invokers,</h4>
-        <h5>All Infusion components support the definition of public functions using invokers; among other uses, invokers allow
-            related components to have different internal implementations of a function but present a common function to
-            be called by other code. If we imagine a "Hello, World!" component, there are a variety of ways it might say
-            "hello". Two of them are:
-            <ul>
-                <li>By printing to the web developer console via console.log</li>
-                <li>By displaying a message on a web page</li>
-            </ul>
-        </h5>
-    </div>
-
-    <!-- Invoker Live Code Example -->
-    <div class="container bottomer" id="ex2">
-        <h5>
-            Here is a Live Example :
-        </h5>
-
-        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
-            version of the
-            <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
-
-        <div class="container bottomer">
-            <iframe height='300' scrolling='no' title='infusion-live-tutorial-invoke' src='//codepen.io/shadxx7/embed/ZrVPKW/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
-                frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
-                <a href='https://codepen.io/shadxx7/pen/ZrVPKW/'>infusion-live-tutorial-invoke</a> by Mohamed Shadab (
-                <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
-                <a href='https://codepen.io'>CodePen</a>.
-            </iframe>
-        </div>
-
-        <div class="container bottomer">
-            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press3()">Next</button>
+    <!-- Hint Modal -->
+    <div class="modal fade" id="hintModal" tabindex="-1" role="dialog" aria-labelledby="hintModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hint</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste voluptates officia quidem dolor voluptatum aliquid itaque,
+                    impedit accusamus ab error quod minima perferendis! A quibusdam nisi quasi neque iure voluptatum! Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Architecto dolores, sunt enim suscipit ullam quod!
+                    Maiores sapiente illum, necessitatibus consequuntur, est officiis dolorum nulla optio rerum iure repudiandae
+                    voluptates excepturi!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Invoker Live Code Challenge -->
-    <div class="container bottomer" id="chall2">
-        <h5>
-            Try Making invoking in the console yourself now :
-        </h5>
+    <div class="part2">
 
-        <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an extended
-            version of the
-            <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
-
-        <div class="container bottomer">
-            <iframe height='300' scrolling='no' title='infusion-live-tutorial-invoke-chall' src='//codepen.io/shadxx7/embed/LQMamd/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
-                frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
-                <a href='https://codepen.io/shadxx7/pen/LQMamd/'>infusion-live-tutorial-invoke-chall</a> by Mohamed Shadab (
-                <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
-                <a href='https://codepen.io'>CodePen</a>.
-            </iframe>
+        <!-- Introduciton -->
+        <div style="padding-bottom: 40px; margin-top: 70px;" id="intro">
+            <h1 class="text-center" style="padding-top: 40px;">Welcome to a Infusion Live Tutorial</h1>
+            <h4 class="text-center bottomer" style="padding-top: 20px;">Today we will be learning about the basics of the Infusion Framework i.e: Components and Invokers
+                <p>*This tutorial will be fully accessible using a keyboard</p>
+            </h4>
+            <div class="container bottomer text-center" id="starter">
+                <button type="button" class="btn btn-outline-success btn-lg" onclick="starter()">Start</button>
+            </div>
         </div>
 
-        <div class="container bottomer">
-            <button type="button" class="btn btn-warning btn-lg btn-block" onclick="press4()">Complete</button>
+        <!-- Intro Spaceholder -->
+        <div style="height: 100px;">
         </div>
+
+        <!-- First Live Code Example -->
+        <div class="container bottomer" id="ex1">
+            <h5>
+                Here is a Live Example :
+            </h5>
+
+            <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an
+                extended version of the
+                <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
+
+            <div class="container bottomer">
+                <iframe height='300' scrolling='no' title='infusion-live-tutorial-comp' src='//codepen.io/shadxx7/embed/WMLaOK/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
+                    frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
+                    <a href='https://codepen.io/shadxx7/pen/WMLaOK/'>infusion-live-tutorial-comp</a> by Mohamed Shadab (
+                    <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
+                    <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+            </div>
+
+            <div class="container bottomer">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="press1()">Next</button>
+            </div>
+        </div>
+
+        <!-- First Live Code Challenge -->
+        <div class="container bottomer" id="chall1">
+            <h5>
+                Try Making a component yourself now :
+            </h5>
+
+            <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an
+                extended version of the
+                <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
+
+            <div class="container bottomer">
+                <iframe height='300' scrolling='no' title='infusion-live-tutorial-comp-chall' src='//codepen.io/shadxx7/embed/rJoPEV/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
+                    frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
+                    <a href='https://codepen.io/shadxx7/pen/rJoPEV/'>infusion-live-tutorial-comp-chall</a> by Mohamed Shadab (
+                    <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
+                    <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+            </div>
+
+            <div class="container bottomer">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="press2()">Next</button>
+            </div>
+        </div>
+
+        <!-- Invoker Live Code Example -->
+        <div class="container bottomer" id="ex2">
+            <h5>
+                Here is a Live Example :
+            </h5>
+
+            <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an
+                extended version of the
+                <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
+
+            <div class="container bottomer">
+                <iframe height='300' scrolling='no' title='infusion-live-tutorial-invoke' src='//codepen.io/shadxx7/embed/ZrVPKW/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
+                    frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
+                    <a href='https://codepen.io/shadxx7/pen/ZrVPKW/'>infusion-live-tutorial-invoke</a> by Mohamed Shadab (
+                    <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
+                    <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+            </div>
+
+            <div class="container bottomer">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="press3()">Next</button>
+            </div>
+        </div>
+
+        <!-- Invoker Live Code Challenge -->
+        <div class="container bottomer" id="chall2">
+            <h5>
+                Try Making invoking in the console yourself now :
+            </h5>
+
+            <h6>(The below component will be replaced by a version in which the user can edit code which will be done using an
+                extended version of the
+                <a href="https://github.com/the-t-in-rtf/fluid-sandbox">Fluid Sandbox</a>)</h6>
+
+            <div class="container bottomer">
+                <iframe height='300' scrolling='no' title='infusion-live-tutorial-invoke-chall' src='//codepen.io/shadxx7/embed/LQMamd/?height=265&theme-id=dark&default-tab=js,result&embed-version=2'
+                    frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen
+                    <a href='https://codepen.io/shadxx7/pen/LQMamd/'>infusion-live-tutorial-invoke-chall</a> by Mohamed Shadab (
+                    <a href='https://codepen.io/shadxx7'>@shadxx7</a>) on
+                    <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+            </div>
+
+            <div class="container bottomer">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="press4()">Complete</button>
+            </div>
+        </div>
+
+        <!-- Complete Popup -->
+        <div class="text-center container bottomer" style="padding-top: 100px; font-size: 40px;" id="complete">
+            <h1 style="color: #28a745;">Tutorial Complete!!!!</h1>
+        </div>
+
     </div>
 
-    <div class="text-center container bottomer" style="padding-top: 100px; font-size: 40px;" id="complete">
-        <h1 style="color: rgb(255, 208, 0);">Tutorial Complete!!!!</h1>
-    </div>
+    <!-- Initialize the UI Options Javascript -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fluid.uiOptions.prefsEditor(".flc-prefsEditor-separatedPanel", {
+                tocTemplate: "lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
+                terms: {
+                    templatePrefix: "lib/infusion/src/framework/preferences/html",
+                    messagePrefix: "lib/infusion/src/framework/preferences/messages"
+                }
+            });
+        })
+    </script>
 
 </body>
 
