@@ -5,7 +5,7 @@ A mockup of a live tutorial for the Infusion Framework. This mock-up currently u
 
 - Install Node and npm for your computer [here](https://nodejs.org/en/)
 
-- Enter the following commands in a terminal (bash/cmd/powershell etc.) :
+- Enter the following commands in a terminal (bash/cmd/powershell etc.):
 
 ```bash
 git clone https://github.com/shadxx7/infusion-live-tutorial.git
