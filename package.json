@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/shadxx7/infusion-live-tutorial#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "jquery": "^3.3.1"
   }
 }

@@ -3,7 +3,7 @@ A mockup of a live tutorial for the Infusion Framework. This mock-up currently u
 
 # Instructions on how to launch the mockup
 
-- Install Node and npm for you computer [here](https://nodejs.org/en/)
+- Install Node and npm for your computer [here](https://nodejs.org/en/)
 
 - Enter the following commands in a terminal (bash/cmd/powershell etc.) :
 
